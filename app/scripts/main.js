@@ -85,7 +85,9 @@
             var clickDrag = new Array();
             var paint;
             var middleXY = 250;
+        var data = [];
             printSquare();
+        initData();
 
             $('#mainCanvas').mousedown(function (e) {
                 var mouseX = e.pageX - this.offsetLeft;
@@ -158,8 +160,8 @@
                 let deviationNumber = clickY2.length / 2;
                 let maxY = Math.max(...clickY2);
                 let minY = Math.min(...clickY2);
-                let maxX = Math.max(...clickX2);
-                let minX = Math.min(...clickX2);
+                // let maxX = Math.max(...clickX2);
+                // let minX = Math.min(...clickX2);
 
                 let isGoingUp = checkGoingUp(avgY, deviationNumber, maxY);
                 let isGoingDown = checkGoingDown(avgY, deviationNumber, minY);
@@ -170,6 +172,12 @@
                 console.log('isGoingDown: ' + isGoingDown.toString());
                 console.log('isUnderLine: ' + isUnderLine.toString());
                 console.log('isMiddleLine: ' + isMiddleLine.toString());
+
+                let detectArray = [isGoingUp,isGoingDown,isUnderLine,isMiddleLine];
+
+                showMessage(detectArray);
+
+
             });
 
             function checkGoingUp(avgY, deviationNumber, max) {
@@ -259,7 +267,7 @@
 
             function resizeCanvas() {
                 canvas.width = window.innerWidth;
-                canvas.height = 500
+                canvas.height = 500;
 
                 /**
                  * Your drawings need to be inside this function otherwise they will be reset when
@@ -273,8 +281,22 @@
             function drawStuff() {
                 // do your drawing stuff here
             }
+
+        function initData() {
+            $.getJSON("data.json", function (json) {
+                data = json;
+            });
         }
-    );
+
+        function showMessage(detectArray) {
+
+        }
+    });
+
+
+
+
+
 
 
 })();
