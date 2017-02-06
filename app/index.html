@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="">
+<html lang="" dir="rtl">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,24 +48,51 @@
     material.purple-indigo.min.css
     -->
     <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
     <!-- Your styles -->
     <link rel="stylesheet" href="styles/main.css">
 </head>
 
 
-<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+<body class="mdl-demo mdl-base">
 
-<header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
-    <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-    </div>
-    <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-        <h3>Web Starter Kit</h3>
-    </div>
-    <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-    </div>
+<!--Title-->
+<header>
+    <nav class="navbar navbar-light">
+        <h1 class="navbar-brand mb-0">גרפולוגיה</h1>
+    </nav>
 </header>
 
+<!--content-->
+<div class="container">
+    <form>
+        <div class="form-group row has-success">
+            <label for="inputHorizontalSuccess" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control form-control-success" id="inputHorizontalSuccess" placeholder="name@example.com">
+                <div class="form-control-feedback">Success! You've done it.</div>
+                <small class="form-text text-muted">Example help text that remains unchanged.</small>
+            </div>
+        </div>
+        <div class="form-group row has-warning">
+            <label for="inputHorizontalWarning" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+                <div class="form-control-feedback">Shucks, check the formatting of that and try again.</div>
+                <small class="form-text text-muted">Example help text that remains unchanged.</small>
+            </div>
+        </div>
+        <div class="form-group row has-danger">
+            <label for="inputHorizontalDnger" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control form-control-danger" id="inputHorizontalDnger" placeholder="name@example.com">
+                <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
+                <small class="form-text text-muted">Example help text that remains unchanged.</small>
+            </div>
+        </div>
+    </form>
+</div>
 
 <canvas id="mainCanvas" height="500px"></canvas>
 <script
