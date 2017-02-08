@@ -74,8 +74,13 @@
 
 
     // Your custom JavaScript goes here
-
+    $( document ).on( "mobileinit", function() {
+        $.mobile.loader.prototype.options.disabled = true;
+    });
     $(document).ready(function () {
+        $.mobile.loadingMessage = false;
+        $.mobile.loader.prototype.options.disabled = true;
+
         var canvas = document.getElementById('mainCanvas');
         var context = canvas.getContext("2d");
         var clickX = new Array();
@@ -89,7 +94,8 @@
         printSquare();
 
 
-        $('#mainCanvas').mousedown(function (e) {
+        $('#mainCanvas').on( "vmousedown",function (e) {
+            e.preventDefault();
             var mouseX = e.pageX - this.offsetLeft;
             var mouseY = e.pageY - this.offsetTop;
 
@@ -98,7 +104,9 @@
             redraw();
         });
 
-        $('#mainCanvas').mousemove(function (e) {
+        $('#mainCanvas').on( "vmousemove",function (e) {
+            e.preventDefault();
+
             if (paint) {
                 console.log(e.pageY);
                 addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
@@ -106,12 +114,16 @@
             }
         });
 
-        $('#mainCanvas').mouseup(function (e) {
+        $('#mainCanvas').on( "vmouseup",function (e) {
+            e.preventDefault();
+
             paint = false;
         });
 
 
-        $('#mainCanvas').mouseleave(function (e) {
+        $('#mainCanvas').on( "vmouseout",function (e) {
+            e.preventDefault();
+
             paint = false;
         });
 
